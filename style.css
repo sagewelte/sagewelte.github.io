@@ -2,6 +2,13 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100vh;
+    
+    font-family: 'PT Sans', sans-serif;
+}
+
+a, a:visited {
+    text-decoration: none;
+    color:black;
 }
 
 body {
@@ -11,23 +18,43 @@ body {
     align-items: center;
 }
 
-h1, h2 {
-    font-family: Helvetica, Arial, sans-serif;
+#fig {
+    margin-top: 2em;
+    height: 600px;
+    width: 440px;
 }
 
-h2 {
-    margin: 0;
+#ui {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
 }
 
-#main {
-    width: 50%;
-
+#profile, #projects, #freelance, #info {
+    margin: 4rem;
     display: flex;
     flex-direction: column;
+    align-items: right;
+    text-align: right;
 }
 
-img#sig {
-    margin-top: 4em;
-    width: 25%;
-    height: 30%;
+#name-svg path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+}
+
+#tagline {
+    width: 180px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    align-self: center;
+}
+
+.pLink, .fLink, .iLink {
+    padding: 1px 0px;
+    margin: 2px 0px;
 }

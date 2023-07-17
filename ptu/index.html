@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>Token Transit</title>
+        <link rel="icon" type="image/x-icon" href="images/tt-logo.png">
+        <link rel="apple-touch-icon" type="image/icon" href="images/tt-logo.png">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+    </head>
+    <body>
+        <div class="agency">
+            <span id="name">NFTA Metro</span>
+            <span id="instructions">Show operator your ticket</span>
+        </div>
+        <div class="validator">
+            <video id="loop" autoplay loop muted playsinline width="1000">
+                <source src="media/nfta-loop.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="pass">
+            <span id="time"></span>
+            <span id="type">7 Day Bus+Rail</span>
+        </div>
+        <div class="ticket">
+            <span id="ticket-type">7 Day Bus & Rail</span>
+            <span id="location">Buffalo, NY</span>
+            <br>
+            <span id="expiration"></span>
+        </div>
+    </body>
+    <script src="moment.js"></script>
+    <script>
+        var time = document.getElementById('time')
+        var exp = document.getElementById('expiration')
+
+        function currentTime () {
+            const now = moment().format('LTS');
+            time.textContent = now;
+        }
+        setInterval(currentTime, 1000)
+
+        function expiry () {
+            const epoch = moment("2023-07-17T04:00");
+            const expire = epoch.add(7, 'days')
+            const now = moment()
+            if (now.isBefore(moment.min(expire))) {
+                exp.textContent = "Expires " + expire.format('ll') + " at 4:00 AM"
+            } else {
+                expire.add(7, 'days')
+                exp.textContent = expire
+            }
+        }
+
+        currentTime()
+        expiry() 
+    </script> 
+</html>

@@ -1,0 +1,82 @@
+@media only screen 
+    and (device-width: 414px) 
+    and (device-height: 896px) 
+    and (-webkit-device-pixel-ratio: 2) {
+        body, html {
+            display: flex;
+            flex-direction: column;
+            max-height: 100%;
+            margin: 1.5em 2em;
+            color: #404040;
+        }
+
+        .agency {
+            display: flex;
+            flex-direction: column;
+
+            #name {
+                font-family: Arial, sans-serif;
+                font-size: 4.5em;
+                font-weight: 600;
+            }
+
+            #instructions {
+                font-family: Helvetica, sans-serif;
+                font-size: 3em;
+                font-weight: 400;
+            }
+        }
+
+        .validator {
+            margin-top: 5em;
+        }
+
+        .pass {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            
+            #time {
+                font-size: 10em;
+                font-weight: 600;
+            }
+
+            #type {
+                width: 90%;
+                background-color: black;
+                text-align: center;
+                border-radius: 65px;
+                margin: 2rem 0;
+                padding: 0.5rem 3rem;
+                color: white;
+                font-size: 8em;
+                font-stretch: condensed;
+                font-weight: 400;
+            }
+        }
+
+        .ticket {
+            font-family: 'Helvetica', sans-serif;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0.5em 0.5em #ADABAD;
+            padding: 2em;
+            margin: 2em 1em;
+
+            #ticket-type {
+                font-size: 5rem;
+                margin: 1rem 0;
+            }
+
+            #location {
+                font-size: 2.5rem;
+            }
+
+            #expiration {
+                margin: 4rem 0;
+                font-size: 2.75rem;
+                font-weight: 600;
+            }
+        }
+    }
