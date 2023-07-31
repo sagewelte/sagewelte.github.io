@@ -47,8 +47,7 @@
                 exp.textContent = "Expires " + expire.format('ll') + " at 4:00 AM"
                 
             } else {
-                expire = epoch
-                expire.add(7, 'days')
+                expire.add(14, 'days')
                 exp.textContent = "Expires " + expire.format('ll') + " at 4:00 AM"
             }
         }
