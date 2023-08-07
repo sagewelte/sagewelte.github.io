@@ -13,7 +13,7 @@
             <span id="instructions">Show operator your ticket</span>
         </div>
         <div class="validator">
-            <video id="loop" autoplay loop muted playsinline width="1000">
+            <video id="loop" preload autoplay loop muted playsinline width="1000">
                 <source src="media/nfta-loop.mp4" type="video/mp4">
             </video>
         </div>
@@ -40,19 +40,22 @@
         setInterval(currentTime, 1000)
 
         function expiry () {
-            const epoch = moment("2023-07-17T04:00");
-            const expire = epoch.add(7, 'days')
-            const now = moment()
-            if (now.isBefore(moment.min(expire))) {
+            const now = moment(Date())
+            const expire = now.day(8)
+            if (now.isSameOrBefore(expire)) {
                 exp.textContent = "Expires " + expire.format('ll') + " at 4:00 AM"
                 
             } else {
+<<<<<<< Updated upstream
                 expire.add(14, 'days')
+=======
+>>>>>>> Stashed changes
                 exp.textContent = "Expires " + expire.format('ll') + " at 4:00 AM"
             }
         }
 
         currentTime()
-        expiry() 
+        expiry()
+
     </script> 
 </html>
