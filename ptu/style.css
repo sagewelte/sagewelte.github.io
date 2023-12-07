@@ -12,7 +12,10 @@
 
         .agency {
             display: flex;
-            flex-direction: column;
+            .text {
+                display: flex;
+                flex-direction: column;
+            }
 
             #name {
                 font-family: Arial, sans-serif;
@@ -25,10 +28,20 @@
                 font-size: 3em;
                 font-weight: 400;
             }
+
+            #minimize {
+                display: flex; 
+                justify-self: right; 
+                font-family: arial; 
+                font-weight: 600; 
+                font-size: 3em
+            }
         }
 
         .validator {
-            margin-top: 5em;
+            display: flex;
+            align-self: center;
+            margin: 15em 0;
         }
 
         .pass {

@@ -9,39 +9,49 @@
     </head>
     <body>
         <div class="agency">
-            <span id="name">NFTA Metro</span>
-            <span id="instructions">Show operator your ticket</span>
+            <span style="display: inline-flex;">
+                <img src="images/nftaLogo.png" width="20%" height="40%">
+                <span class="text">
+                    <span id="name">NFTA Metro</span>
+                    <span id="instructions">Scan your ticket</span>
+                </span>
+            </span>
+            <span id="minimize">X</span>
         </div>
         <div class="validator">
-            <video id="loop" preload autoplay loop muted playsinline width="1000">
-                <source src="media/nfta-loop.mp4" type="video/mp4">
-            </video>
+            <img src="media/qrcode.png" alt="NFTA QR code" width="600px" height="600px">
         </div>
         <div class="pass">
             <span id="time"></span>
-            <span id="type">7 Day Bus+Rail</span>
+            <span id="type">Day Bus+Rail</span>
         </div>
         <div class="ticket">
-            <span id="ticket-type">7 Day Bus & Rail</span>
+            <span id="ticket-type">Adult Day Bus & Rail</span>
             <span id="location">Buffalo, NY</span>
             <br>
             <span id="expiration"></span>
         </div>
     </body>
-    <script src="moment.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/isSameOrBefore.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/localizedFormat.js"></script>
+    <script>dayjs.extend(window.dayjs_plugin_localizedFormat)</script>
+    <script>dayjs.extend(window.dayjs_plugin_isSameOrBefore)</script>
     <script>
+
         var time = document.getElementById('time')
         var exp = document.getElementById('expiration')
 
         function currentTime () {
-            const now = moment().format('LTS');
+            const now = dayjs().format('LTS');
             time.textContent = now;
         }
+
         setInterval(currentTime, 1000)
 
         function expiry () {
-            const now = moment(Date())
-            const expire = now.day(8)
+            const now = dayjs()
+            const expire = now.add(1, 'day')
             if (now.isSameOrBefore(expire)) {
                 exp.textContent = "Expires " + expire.format('ll') + " at 4:00 AM"
             } else {
